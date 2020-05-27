@@ -22,6 +22,6 @@ class SqliteRepository
   end
 
   def destroy(offer_id)
-    Offer.destroy(offer_id)
+    Offer.delete(offer_id)
   end
 end
