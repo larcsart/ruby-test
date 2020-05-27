@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+table, th, td { 
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: center;
+    padding: 5px;
+}
+
+td {
+    text-align: left;
+}
+
+.create-offer-form {
+    margin-top: 1%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.admin-offers-list {
+    margin-top: 5%;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+}

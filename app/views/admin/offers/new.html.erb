@@ -1,38 +1,42 @@
 <%= form_with scope: :offer, url: offers_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+  <table class="create-offer-form">
+    <tr>
+      <td><%= form.label :title %></td>
+      <td><%= form.text_field :title %></td>
+    </tr>
 
-  <p>
-    <%= form.label :url %><br>
-    <%= form.url_field :url %>
-  </p>
+    <tr>
+      <td><%= form.label :url %><br></td>
+      <td><%= form.url_field :url %></td>
+    </tr>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+    <tr>
+      <td><%= form.label :description %></td>
+      <td><%= form.text_area :description %></td>
+    </tr>
 
-  <p>
-    <%= form.label :starts_at %><br>
-    <%= form.date_field :starts_at %>
-  </p>
+    <tr>
+      <td><%= form.label :starts_at %></td>
+      <td><%= form.date_field :starts_at %></td>
+    </tr>
 
-  <p>
-    <%= form.label :ends_at %><br>
-    <%= form.date_field :ends_at %>
-  </p>
+    <tr>
+      <td><%= form.label :ends_at %></td>
+      <td><%= form.date_field :ends_at %></td>
+    </tr>
 
-  <p>
-    <%= form.label :premium %><br>
-    <%= form.check_box :premium %>
-  </p>
+    <tr>
+      <td><%= form.label :premium %></td>
+      <td><%= form.check_box :premium %></td>
+    </tr>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <tr>
+      <td colspan="2"><%= form.submit %></td>
+    </tr>
+  </table>
+<% end %>
 
+<div class="admin-offers-list">
   <table>
     <tr>
       <th>ID</th>
@@ -49,8 +53,6 @@
         <td><%= offer.url %></td>
         <td><%= offer.status %></td>
         <td>
-          <%= link_to 'Edit', edit_offer_path(offer) %>
-
           <% if offer.status == OfferStatus::ENABLED %>
             <%= link_to 'Disable', disable_offer_path(offer), method: :post %>
           <% else %>
@@ -62,4 +64,4 @@
       </tr>
     <% end %>
   </table>
-<% end %>
+</div>

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @offers = offers_service.find_all
+    @offers = filter_enabled(offers_service.find_all)
   end
 
   private
@@ -11,5 +11,11 @@ class HomeController < ApplicationController
 
   def offers_repository
     @offers_repository ||= ::SqliteRepository.new
+  end
+
+  def filter_enabled(offers)
+    offers.select do |offer|
+      offer.status == ::OfferStatus::ENABLED
+    end
   end
 end

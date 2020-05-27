@@ -1,15 +1,17 @@
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Link</th>
-    </tr>
-
-    <% @offers.each do |offer| %>
-        <tr>
-        <td><%= offer.title %></td>
-        <td><%= offer.description %></td>
-        <td><%= link_to 'Shop', offer.url %></td>
-        </tr>
-    <% end %>
-</table>
+<div class="offers-list">
+  <% @offers.each do |offer| %>
+    <div class="offer-item">
+      <table>
+          <tr>
+            <td><%= offer.title %></td>
+          </tr>
+          <tr>
+            <td><%= offer.description %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Shop', offer.url %></td>
+          </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

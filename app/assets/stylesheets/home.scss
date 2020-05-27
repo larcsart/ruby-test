@@ -1,3 +1,30 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+    text-align: center;
+}
+
+.offers-list {
+    margin-top: 1%;
+    margin-left: 1%;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+.offer-item {
+    margin-bottom: 1%;
+}
+
+.offer-item table {
+    table-layout: fixed;
+    width: 10%;
+}
+
+.offer-item td {
+    border: none;
+    text-align: center;
+    padding: 2px;
+}

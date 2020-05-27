@@ -13,15 +13,6 @@ module Admin
       @offers = offers_service.find_all
     end
 
-    def edit
-    end
-
-    def show
-    end
-
-    def update
-    end
-
     def destroy
       offers_service.destroy(params.require(:id))
 
