@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     post 'offers/:id/disable', to: 'admin/offers#disable', as: :disable_offer
   end
 
+  get 'admin', to: redirect('admin/offers/new')
+
   root 'home#index'
 end
