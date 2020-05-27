@@ -20,4 +20,8 @@ class SqliteRepository
   def update_status(offer_id, status)
     Offer.where(id: offer_id).update_all(status: status)
   end
+
+  def destroy(offer_id)
+    Offer.destroy(offer_id)
+  end
 end

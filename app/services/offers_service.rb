@@ -13,6 +13,10 @@ class OffersService
     repository.find_all
   end
 
+  def destroy(offer_id)
+    repository.destroy(offer_id)
+  end
+
   def enable(offer_id)
     repository.update_status(offer_id, OfferStatus::ENABLED)
   end

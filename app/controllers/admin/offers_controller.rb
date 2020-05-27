@@ -23,6 +23,9 @@ module Admin
     end
 
     def destroy
+      offers_service.destroy(params.require(:id))
+
+      redirect_to new_offer_path
     end
 
     def enable
@@ -36,7 +39,7 @@ module Admin
 
       redirect_to new_offer_path
     end
-  
+
     private
 
     def offers_service
