@@ -1,0 +1,65 @@
+<%= form_with scope: :offer, url: offers_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :url %><br>
+    <%= form.url_field :url %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :starts_at %><br>
+    <%= form.date_field :starts_at %>
+  </p>
+
+  <p>
+    <%= form.label :ends_at %><br>
+    <%= form.date_field :ends_at %>
+  </p>
+
+  <p>
+    <%= form.label :premium %><br>
+    <%= form.check_box :premium %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.id %></td>
+        <td><%= offer.title %></td>
+        <td><%= offer.url %></td>
+        <td><%= offer.status %></td>
+        <td>
+          <%= link_to 'Edit', edit_offer_path(offer) %>
+
+          <% if offer.status == OfferStatus::ENABLED %>
+            <%= link_to 'Disable', disable_offer_path(offer), method: :post %>
+          <% else %>
+            <%= link_to 'Enable', enable_offer_path(offer), method: :post %>
+          <% end %>
+
+          <%= link_to 'Destroy', offer_path(offer), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
